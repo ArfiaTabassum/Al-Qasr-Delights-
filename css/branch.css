@@ -1,0 +1,289 @@
+:root {
+    --gold: #D4AF37;
+    --gold-light: rgba(212, 175, 55, 0.3);
+    --dark-overlay: rgba(46, 41, 41, 0.85);
+}
+
+body {
+    background: url('../Pictures/cc4.jpeg') no-repeat center center/cover;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark-overlay);
+    z-index: -1;
+}
+
+/* Main Golden Box */
+.golden-box {
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 2000px;
+    margin: 80px auto;
+    border: 1px solid var(--gold);
+    box-shadow: 0 0 20px var(--gold-light);
+}
+
+.golden-box h1 {
+    color: var(--gold);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    position: relative;
+    text-align: center;
+}
+
+.golden-box h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: var(--gold);
+}
+
+/* Two Column Layout - UPDATED */
+.branches-layout {
+    display: grid;
+    grid-template-columns: 60% 40%; /* Left 40%, Right 60% */
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Branch Cards Grid - UPDATED */
+.branches-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 20px;
+}
+
+.section-title {
+    color: var(--gold);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--gold);
+}
+
+/* Branch Cards */
+.branch-card {
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+.branch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--gold-light);
+}
+
+.branch-card h3 {
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.branch-card p {
+    margin-bottom: 5px;
+}
+
+.branch-card i {
+    color: var(--gold);
+    margin-right: 8px;
+}
+
+.distance-badge {
+    background: var(--gold);
+    color: black;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Location Finder */
+.location-finder {
+    position: relative;
+}
+
+.find-btn {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.find-btn:hover {
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.find-btn i {
+    margin-right: 8px;
+}
+
+/* Dropdown Menu */
+.menu-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #D4AF37;
+    color: #D4AF37;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s;
+}
+
+.menu-button:hover {
+    transform: rotate(90deg);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.dropdown-menu {
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #D4AF37;
+    padding: 15px 0;
+    width: 200px;
+    border-radius: 5px;
+    display: none;
+    z-index: 1001;
+    list-style: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown-menu a {
+    color: white;
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.dropdown-menu a:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 3px solid #D4AF37;
+    padding-left: 25px;
+}
+
+.dropdown-menu.show {
+    display: block;
+    animation: fadeIn 0.3s;
+}
+
+/* Footer */
+.arabian-footer {
+    background: transparent;
+    padding: 30px 0;
+    text-align: center;
+    position: relative;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    width: 100%;
+    margin-top: auto;
+}
+
+.arabian-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #D4AF37;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    position: relative;
+    padding: 0 10px;
+}
+
+.footer-links a:not(:last-child)::after {
+    content: '|';
+    position: absolute;
+    right: -5px;
+    color: #D4AF37;
+}
+
+.footer-links a:hover {
+    opacity: 0.8;
+}
+
+.copyright {
+    color: #D4AF37;
+    font-size: 0.8rem;
+    opacity: 0.7;
+    letter-spacing: 0.5px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .branches-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cards on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .branches-layout {
+        grid-template-columns: 1fr; /* Stack columns on mobile */
+    }
+    .branches-grid {
+        grid-template-columns: 1fr; /* 1 card on mobile */
+    }
+    .golden-box {
+        padding: 20px;
+        margin: 40px 20px;
+    }
+}

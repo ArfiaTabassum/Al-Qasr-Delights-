@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qasr-Delights | Luxury Arabian Dining</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@400;700&family=Great+Vibes&family=Lateef:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+  <!-- Golden Floating Balls -->
+  <div class="golden-balls" id="goldenBalls"></div>
+  <!-- Dropdown Menu Button -->
+  <button class="menu-button" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+    
+  <!-- Dropdown Menu -->
+  <ul id="menu" class="dropdown-menu">
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="menu.php"><i class="fas fa-utensils"></i> Menu</a></li>
+      <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+      <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+      <li><a href="gallery.html"><i class="fas fa-camera"></i> Gallery</a></li>
+      <li><a href="branches.html"><i class="fas fa-map-marker-alt"></i> Branches</a></li>
+      <li><a href="reservation.php"><i class="fas fa-calendar-check"></i> Reservation</a></li>
+      <li><a href="review.php"><i class="fas fa-star"></i> Review</a></li>
+  </ul>
+
+  <!-- Luxury Carousel -->
+  <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2000">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../Pictures/cc.jpeg" class="d-block w-100" alt="Luxury Dining">
+      </div>
+      <div class="carousel-item">
+        <img src="../Pictures/cc6.jpeg" class="d-block w-100" alt="Gourmet Cuisine">
+      </div>
+      <div class="carousel-item">
+        <img src="../Pictures/g.jpeg" class="d-block w-100" alt="Fine Dining">
+      </div>
+      <div class="carousel-item">
+        <img src="../Pictures/c.jpeg" class="d-block w-100" alt="Signature Dishes">
+      </div>
+      <div class="carousel-item">
+        <img src="../Pictures/cc4.jpeg" class="d-block w-100" alt="Chef's Special">
+      </div>
+    </div>
+  </div>
+
+  <!-- Luxury Hero Content -->
+  <div class="hero-content">
+    <h1 class="arabic-title">قصر ديلايتس</h1>
+    <h2 class="english-title">Qasr Delights</h2>
+    <h3 class="kannada-title" style="font-family: 'Lateef', serif; color: var(--gold); font-size: 2.5rem; margin: 10px 0;">ಕಾಸರ್ ಡಿಲೈಟ್ಸ್</h3>
+    <div class="tagline">Taste of Elegance....</div>
+    
+    
+    <div class="action-buttons">
+      <button class="gold-btn" onclick="window.location.href='menu.php'">Discover Our Menu</button>
+      <button class="gold-btn" onclick="window.location.href='reservation.php'">Make Reservation</button>
+    </div>
+  </div>
+
+  <!-- Luxury Footer -->
+  <footer class="arabian-footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="menu.php">Menu</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="branches.html">Branches</a>
+      <a href="reservation.php">Reservation</a>
+      <a href="review.php">Reviews</a>
+    </div>
+    <div class="copyright">© 2025 Qasr Delights | Arabian Fine Dining. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Generate golden balls
+    function createBalls() {
+      const container = document.getElementById('goldenBalls');
+      const ballCount = 15;
+      
+      for (let i = 0; i < ballCount; i++) {
+        const ball = document.createElement('div');
+        ball.classList.add('ball');
+        
+        // Random properties
+        const size = Math.random() * 20 + 5;
+        const posX = Math.random() * 100;
+        const delay = Math.random() * 15;
+        const duration = Math.random() * 10 + 10;
+        
+        ball.style.width = `${size}px`;
+        ball.style.height = `${size}px`;
+        ball.style.left = `${posX}%`;
+        ball.style.animationDelay = `${delay}s`;
+        ball.style.animationDuration = `${duration}s`;
+        
+        container.appendChild(ball);
+      }
+    }
+
+    // Run on load
+    window.addEventListener('load', createBalls);
+// Toggle dropdown menu function
+       function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const menuButton = document.querySelector('.menu-button');
+      const dropdownMenu = document.getElementById('menu');
+      
+      if (!menuButton.contains(event.target)) {
+        dropdownMenu.classList.remove('show');
+      }
+    });
+    
+   
+   
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

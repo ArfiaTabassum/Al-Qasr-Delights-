@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Qasr-Delights</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/contact.css">
+</head>
+<body>
+    <!-- Dropdown Menu Button -->
+<button class="menu-button" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+
+<!-- Dropdown Menu -->
+<ul id="menu" class="dropdown-menu">
+  <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+  <li><a href="menu.php"><i class="fas fa-utensils"></i> Menu</a></li>
+  <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+  <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+  <li><a href="gallery.html"><i class="fas fa-camera"></i> Gallery</a></li>
+  <li><a href="branches.html"><i class="fas fa-map-marker-alt"></i> Branches</a></li>
+  <li><a href="reservation.php"><i class="fas fa-calendar-check"></i> Reservation</a></li>
+  <li><a href="review.php"><i class="fas fa-star"></i> Review</a></li>
+</ul>
+    <div class="content-wrapper">
+        <div class="contact-box">
+            <h2>Contact Us</h2>
+            <p><strong>Name:</strong> Qasr-Delights</p>
+            <p><strong>Phone:</strong> +91 8147323473</p>
+            <p><strong>Email:</strong> info@Qasr-Delights.com</p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+<footer class="arabian-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="menu.php">Menu</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="branches.html">Branches</a>
+        <a href="reservation.php">Reservation</a>
+        <a href="review.php">Reviews</a>
+      </div>
+      <div class="copyright">
+        © 2025 Qasr Delights | Arabian Fine Dining. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Dropdown Menu Functions
+    function toggleMenu() {
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("show");
+    }
+  
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      const menuButton = document.querySelector('.menu-button');
+      const dropdownMenu = document.getElementById('menu');
+      
+      if (!menuButton.contains(event.target)) {
+        dropdownMenu.classList.remove('show');
+      }
+    });
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

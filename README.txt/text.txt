@@ -1,0 +1,181 @@
+for resttting reservation page
+<?php
+session_start();
+session_unset();
+session_destroy();
+?>
+
+// Send OTP using PHPMailer
+    $mail = new PHPMailer(true);
+    try {
+        // Server settings
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'ummehani99800@gmail.com';         // Your Gmail
+        $mail->Password   = 'xwgn ecba yfqt qbpl';              // App password
+        $mail->SMTPSecure = 'tls';
+        $mail->Port       = 587;
+
+        // Sender and recipient
+        $mail->setFrom('ummehani99800@gmail.com', 'Qasr-Delights');
+        $mail->addAddress($email, $full_name);
+
+        // Email content
+        $mail->isHTML(true);
+        $mail->Subject = 'Your OTP for Reservation - Qasr-Delights';
+        $mail->Body    = "
+            <h3>Dear $full_name,</h3>
+            <p>Your OTP for reservation is: <strong>$otp</strong></p>
+            <p>Regards,<br>QASR-DELIGHTS Restaurant</p>
+        ";
+
+        $mail->send();
+        header('Location: ../user/reservation.php');
+        exit();
+    } catch (Exception $e) {
+        echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+    }
+
+
+
+for otp
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
+require 'PHPMailer/Exception.php'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+delete reservation
+
+<?php
+// deleted_reservations.php
+include '../php/db.php';
+
+$sql = "SELECT * FROM deleted_reservations ORDER BY created_at DESC";
+$result = $conn->query($sql);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deleted Reservations</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .side-box {
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        .sidebar {
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="d-flex">
+    <!-- Sidebar -->
+    <div class="bg-dark text-white p-3 sidebar" style="width: 250px;">
+        <h3 class="text-center">Admin Panel</h3>
+        <ul class="nav flex-column mt-4">
+            <li class="nav-item"><a href="admin_dashboard.php" class="nav-link text-white">Dashboard</a></li>
+            <li class="nav-item"><a href="manage_reservations.php" class="nav-link text-white">Manage Reservations</a></li>
+            <li class="nav-item"><a href="manage_reviews.php" class="nav-link text-white">Manage Reviews</a></li>
+            <li class="nav-item"><a href="manage_branches.php" class="nav-link text-white">Manage Branches</a></li>
+            <li class="nav-item"><a href="manage_orders.php" class="nav-link text-white active">Manage Orders</a></li>
+            <li class="nav-item"><a href="deleted_reservations.php" class="nav-link text-white">Deleted Reservations</a></li>
+            <li class="nav-item mt-5"><a href="php/logout.php" class="btn btn-danger w-100">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container-fluid p-4">
+        <h1 class="text-center mb-4">Deleted Reservations</h1>
+
+        <!-- Deleted Reservations Table -->
+        <table class="table table-bordered table-striped align-middle text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Guests</th>
+                    <th>Time Slot</th>
+                    <th>Branch</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if ($result->num_rows > 0): ?>
+                    <?php while($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($row['full_name']) ?></td>
+                            <td><?= htmlspecialchars($row['email']) ?></td>
+                            <td><?= htmlspecialchars($row['phone']) ?></td>
+                            <td><?= htmlspecialchars($row['guests']) ?></td>
+                            <td><?= htmlspecialchars($row['time_slot']) ?></td>
+                            <td><?= htmlspecialchars($row['branch']) ?></td>
+                            <td><?= htmlspecialchars($row['dates']) ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                <?php else: ?>
+                    <tr><td colspan="8">No deleted reservations found.</td></tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
